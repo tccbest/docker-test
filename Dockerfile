@@ -12,7 +12,8 @@ RUN apt-get update && \
         librabbitmq-dev \
 	libcurl3-dev
 
-#RUN docker-php-ext-install mysqli \
+RUN docker-php-ext-install mysqli \
+    && docker-php-ext-install gmp	
 #    && docker-php-ext-install pdo_mysql \
 #    && docker-php-ext-install gd \
 #    && docker-php-ext-install mcrypt \
