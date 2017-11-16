@@ -1,6 +1,5 @@
 FROM php:7.0-fpm
 
-ARG APT_MIRROR="http://mirrors.163.com"
 RUN apt-get update && \
     apt-get install -y \
 	libz-dev \
