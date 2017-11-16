@@ -9,9 +9,8 @@ RUN apt-get update && \
         libfreetype6-dev \
         libssl-dev \
         libmcrypt-dev \
-        librabbitmq-dev
-
-RUN apt-get upgrade curl
+        librabbitmq-dev \
+	libcurl3-dev
 
 #RUN docker-php-ext-install mysqli \
 #    && docker-php-ext-install pdo_mysql \
