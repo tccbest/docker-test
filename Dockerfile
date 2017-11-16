@@ -1,7 +1,6 @@
 FROM php:7.0-fpm
 
 RUN apt-get update && \
-    apt-get upgrade curl && \
     apt-get install -y \
 	libz-dev \
         libpq-dev \
@@ -11,6 +10,8 @@ RUN apt-get update && \
         libssl-dev \
         libmcrypt-dev \
         librabbitmq-dev
+
+RUN apt-get upgrade curl
 
 #RUN docker-php-ext-install mysqli \
 #    && docker-php-ext-install pdo_mysql \
