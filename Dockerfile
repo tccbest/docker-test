@@ -8,28 +8,29 @@ RUN apt-get update && \
         libpng12-dev \
         libfreetype6-dev \
         libssl-dev \
-        libmcrypt-dev
+        libmcrypt-dev \
+        librabbitmq-dev
 
-RUN docker-php-ext-install mysqli \
-    && docker-php-ext-install pdo_mysql \
-    && docker-php-ext-install gd \
-    && docker-php-ext-install mcrypt \
-    && docker-php-ext-install gd \
-    && docker-php-ext-install opcache \
-    && docker-php-ext-install bcmath \
-    && docker-php-ext-install zip 
+#RUN docker-php-ext-install mysqli \
+#    && docker-php-ext-install pdo_mysql \
+#    && docker-php-ext-install gd \
+#    && docker-php-ext-install mcrypt \
+#    && docker-php-ext-install gd \
+#    && docker-php-ext-install opcache \
+#    && docker-php-ext-install bcmath \
+#    && docker-php-ext-install zip 
 
 #redis
-RUN pecl install -o -f redis \
-    &&  docker-php-ext-enable redis
+#RUN pecl install -o -f redis \
+#    &&  docker-php-ext-enable redis
 
 #swoole
-RUN pecl install swoole \
-    &&  docker-php-ext-enable swoole
+#RUN pecl install swoole \
+#    &&  docker-php-ext-enable swoole
 
 #mongodb
-RUN pecl install mongodb && \
-    docker-php-ext-enable mongodb
+#RUN pecl install mongodb && \
+#    docker-php-ext-enable mongodb
 
 #amqp
 RUN pecl install amqp && \
