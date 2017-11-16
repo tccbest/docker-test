@@ -30,4 +30,5 @@ RUN pecl install swoole \
 RUN pecl install mongodb && \
     docker-php-ext-enable mongodb
 
-
+EXPOSE 9000
+CMD ["php-fpm"]
