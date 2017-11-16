@@ -33,11 +33,13 @@ RUN apt-get update && \
 #    docker-php-ext-enable mongodb
 
 #amqp
-RUN pecl install amqp && \
-    docker-php-ext-enable amqp
+#RUN pecl install amqp && \
+#    docker-php-ext-enable amqp
 
 #yar
-RUN pecl install yar && \
+RUN pecl install msgpack && \
+    docker-php-ext-enable msgpack && \
+    pecl install yar && \
     docker-php-ext-enable yar
 
 #gmp
