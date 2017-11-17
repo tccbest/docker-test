@@ -41,14 +41,10 @@ RUN docker-php-ext-install mysqli \
 #    docker-php-ext-enable amqp
 
 #yar
-RUN pecl install msgpack && \
-    docker-php-ext-enable msgpack && \
-    pecl install yar && \
-    docker-php-ext-enable yar
-
-#gmp
-RUN pecl install gmp && \
-    docker-php-ext-enable gmp
+#RUN pecl install msgpack && \
+#    docker-php-ext-enable msgpack && \
+#    pecl install yar && \
+#    docker-php-ext-enable yar
 
 #apcu
 RUN pecl install apcu && \
