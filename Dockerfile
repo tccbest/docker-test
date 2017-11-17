@@ -51,7 +51,7 @@ RUN pecl install apcu && \
     docker-php-ext-enable apcu
 
 ADD ./xphp.ini /usr/local/etc/php/conf.d/
-ADD ./xwww-conf.conf /usr/local/etc/php-fpm.d/
+ADD ./xwww.conf /usr/local/etc/php-fpm.d/
 
 RUN usermod -u 1000 www-data
 
