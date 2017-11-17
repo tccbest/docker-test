@@ -13,9 +13,10 @@ RUN apt-get update && \
 	libcurl3-dev \
         libgmp-dev
 
-RUN docker-php-ext-configure gmp 
-RUN docker-php-ext-install mysqli \
-    && docker-php-ext-install gmp	
+#RUN docker-php-ext-configure gmp 
+RUN docker-php-ext-install process
+#RUN docker-php-ext-install mysqli \
+#    && docker-php-ext-install gmp	
 #    && docker-php-ext-install pdo_mysql \
 #    && docker-php-ext-install gd \
 #    && docker-php-ext-install mcrypt \
@@ -47,8 +48,8 @@ RUN docker-php-ext-install mysqli \
 #    docker-php-ext-enable yar
 
 #apcu
-RUN pecl install apcu && \
-    docker-php-ext-enable apcu
+#RUN pecl install apcu && \
+#    docker-php-ext-enable apcu
 
 #process 
 RUN pecl install process && \
