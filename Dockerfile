@@ -50,8 +50,8 @@ RUN pecl install msgpack && \
 RUN pecl install apcu && \
     docker-php-ext-enable apcu
 
-ADD ./php.pri.ini /usr/local/etc/php/conf.d/
-ADD ./php-fpm.pri.conf /usr/local/etc/php-fpm.d/
+ADD ./xphp.ini /usr/local/etc/php/conf.d/
+ADD ./xwww-conf.conf /usr/local/etc/php-fpm.d/
 
 RUN usermod -u 1000 www-data
 
