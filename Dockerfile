@@ -10,7 +10,8 @@ RUN apt-get update && \
         libssl-dev \
         libmcrypt-dev \
         librabbitmq-dev \
-	libcurl3-dev
+	libcurl3-dev \
+        libgmp-dev
 
 RUN docker-php-ext-install mysqli \
     && docker-php-ext-install gmp	
