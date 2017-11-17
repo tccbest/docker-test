@@ -52,6 +52,7 @@ RUN apt-get update && \
 
 RUN groupadd apache
 RUN useradd -g apache apache
+ENV PHP_EXTRA_CONFIGURE_ARGS --enable-fpm --with-fpm-user=apache --with-fpm-group=apache
 
 EXPOSE 9000
 
