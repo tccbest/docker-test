@@ -50,6 +50,7 @@ RUN apt-get update && \
 #RUN pecl install apcu && \
 #    docker-php-ext-enable apcu
 
+RUN useradd -g apache apache
 RUN usermod -G apache apache
 
 EXPOSE 9000
