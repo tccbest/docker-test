@@ -14,7 +14,6 @@ RUN apt-get update && \
         libgmp-dev
 
 #RUN docker-php-ext-configure gmp 
-RUN docker-php-ext-install process
 #RUN docker-php-ext-install mysqli \
 #    && docker-php-ext-install gmp	
 #    && docker-php-ext-install pdo_mysql \
@@ -50,10 +49,6 @@ RUN docker-php-ext-install process
 #apcu
 #RUN pecl install apcu && \
 #    docker-php-ext-enable apcu
-
-#process 
-RUN pecl install process && \
-    docker-php-ext-enable process
 
 #hiredis
 RUN pecl install hiredis && \
