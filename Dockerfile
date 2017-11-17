@@ -13,46 +13,47 @@ RUN apt-get update && \
 	libcurl3-dev \
         libgmp-dev
 
-#RUN docker-php-ext-configure gmp 
-#RUN docker-php-ext-install mysqli \
-#    && docker-php-ext-install gmp	
-#    && docker-php-ext-install pdo_mysql \
-#    && docker-php-ext-install gd \
-#    && docker-php-ext-install mcrypt \
-#    && docker-php-ext-install gd \
-#    && docker-php-ext-install opcache \
-#    && docker-php-ext-install bcmath \
-#    && docker-php-ext-install zip 
+RUN docker-php-ext-install mysqli \ 
+    && docker-php-ext-configure gmp \ 
+    && docker-php-ext-install gmp	
+    && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install gd \
+    && docker-php-ext-install mcrypt \
+    && docker-php-ext-install gd \
+    && docker-php-ext-install opcache \
+    && docker-php-ext-install bcmath \
+    && docker-php-ext-install zip 
 
 #redis
-#RUN pecl install -o -f redis \
-#    &&  docker-php-ext-enable redis
+RUN pecl install -o -f redis \
+    &&  docker-php-ext-enable redis
 
 #swoole
-#RUN pecl install swoole \
-#    &&  docker-php-ext-enable swoole
+RUN pecl install swoole \
+    &&  docker-php-ext-enable swoole
 
 #mongodb
-#RUN pecl install mongodb && \
-#    docker-php-ext-enable mongodb
+RUN pecl install mongodb && \
+    docker-php-ext-enable mongodb
 
 #amqp
-#RUN pecl install amqp && \
-#    docker-php-ext-enable amqp
+RUN pecl install amqp && \
+    docker-php-ext-enable amqp
 
 #yar
-#RUN pecl install msgpack && \
-#    docker-php-ext-enable msgpack && \
-#    pecl install yar && \
-#    docker-php-ext-enable yar
+RUN pecl install msgpack && \
+    docker-php-ext-enable msgpack && \
+    pecl install yar && \
+    docker-php-ext-enable yar
 
 #apcu
-#RUN pecl install apcu && \
-#    docker-php-ext-enable apcu
+RUN pecl install apcu && \
+    docker-php-ext-enable apcu
 
-RUN groupadd apache
-RUN useradd -g apache apache
-ENV PHP_EXTRA_CONFIGURE_ARGS --enable-fpm --with-fpm-user=apache --with-fpm-group=apache
+ADD ./php.pri.ini /usr/local/etc/php/conf.d/
+ADD ./php-fpm.pri.conf /usr/local/etc/php-fpm.d/
+
+RUN usermod -u 1000 www-data
 
 EXPOSE 9000
 
