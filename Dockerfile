@@ -50,10 +50,6 @@ RUN apt-get update && \
 #RUN pecl install apcu && \
 #    docker-php-ext-enable apcu
 
-#hiredis
-RUN pecl install hiredis && \
-    docker-php-ext-enable hiredis
-
 RUN usermod -u www-data www-data
 
 EXPOSE 9000
